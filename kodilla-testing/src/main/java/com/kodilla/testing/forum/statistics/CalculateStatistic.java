@@ -11,7 +11,7 @@ public class CalculateStatistic implements Statistics {
    public double averageCommentsUser;
    public double averageCommentsPost;
 
-    public void calculateAdvStatistics(Statistics statistics) {
+    public void CalculateAdvStatistics(Statistics statistics) {
         userCount = statistics.usersNames().size();
         postCount = statistics.postsCount();
         commentCount = statistics.commentsCount();

@@ -1,4 +1,4 @@
-package com.kodilla.testing.com.kodilla.testing.weather.mock;
+package com.kodilla.testing.mock;
 import com.kodilla.weather.stub.Temperatures;
 import com.kodilla.weather.stub.WeatherForecast;
 import org.junit.Assert;

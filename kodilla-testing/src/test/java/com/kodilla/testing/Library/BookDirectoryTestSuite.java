@@ -1,4 +1,4 @@
-package com.kodilla.testing.com.kodilla.testing.Library;
+package com.kodilla.testing.Library;
 
 import com.kodilla.testing.library.Book;
 import com.kodilla.testing.library.BookLibrary;

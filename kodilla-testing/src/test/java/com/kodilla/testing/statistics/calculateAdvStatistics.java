@@ -1,4 +1,4 @@
-package com.kodilla.testing.com.kodilla.testing.forum.statistics;
+package com.kodilla.testing.statistics;
 
 import com.kodilla.testing.forum.statistics.CalculateStatistic;
 import com.kodilla.testing.forum.statistics.Statistics;
@@ -18,9 +18,9 @@ public class calculateAdvStatistics {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> Lists = new ArrayList<String>();
         Lists.add("Marek Marecki");
-        when(statisticsMock.usersNames()).then.Return(Lists);
-        when(statisticsMock.commentsCount().then.Return(0);
-        when(statisticsMock.postsCount()).then.Return(0);
+        when(statisticsMock.usersNames()).thenReturn(Lists);
+        when(statisticsMock.commentsCount()).thenReturn(0);
+        when(statisticsMock.postsCount()).thenReturn(0);
 
         CalculateStatistic calculateStatistic = new CalculateStatistic();
         calculateStatistic.calculateAdvStatistics(statisticsMock);
