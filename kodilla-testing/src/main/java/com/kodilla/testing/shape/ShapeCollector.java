@@ -19,6 +19,10 @@ public class ShapeCollector {
             System.out.println(shape.getShapeName());
         }
     }
+      public List<Shape> getFigures() {
+            return shapes;
+
+    }
 }
 
 

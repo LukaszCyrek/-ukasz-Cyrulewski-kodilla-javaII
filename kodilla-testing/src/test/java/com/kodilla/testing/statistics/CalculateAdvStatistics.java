@@ -12,7 +12,7 @@ import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class calculateAdvStatistics {
+public class CalculateAdvStatistics {
     @Test
     public void  testCalculateNoPost() {
         Statistics statisticsMock = mock(Statistics.class);

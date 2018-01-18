@@ -7,12 +7,18 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-+
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class BookDirectoryTestSuite {
     @Test
     public void testListBooksWithConditionsReturnList() {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(LibraryDatabaseMock);
+        BookLibrary bookLibrary;
+        bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBooks = new ArrayList<Book>();
         Book book1 = new Book("Secrets of Alamo", "John Smith", 2008);
         Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", 2012);
@@ -24,8 +30,11 @@ public class BookDirectoryTestSuite {
         resultListOfBooks.add(book4);
         when(libraryDatabaseMock.listBooksWithCondition("Secret"))
                 .thenReturn(resultListOfBooks);
+
+        List<Book> theListOfBooks = bookLibrary.listBooksWithCondition("Secret");
         assertEquals(4, theListOfBooks.size());
     }
+
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<Book>();
         for (int n = 1; n <= booksQuantity; n++) {
@@ -34,6 +43,7 @@ public class BookDirectoryTestSuite {
         }
         return resultList;
     }
+
     @Test
     public void testListBooksWithConditionMoreThan20() {
         // Given
@@ -58,4 +68,5 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks0.size());
         assertEquals(15, theListOfBooks15.size());
         assertEquals(0, theListOfBooks40.size());
+    }
 }

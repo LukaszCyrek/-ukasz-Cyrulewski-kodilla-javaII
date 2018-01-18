@@ -2,6 +2,7 @@ package com.kodilla.testing.shape;
 import com.kodilla.testing.shape.ShapeCollector;
 import org.junit.*;
 
+import static org.junit.Assert.assertEquals;
 
 
 public class ShapeCollectorTestSuite {
@@ -36,8 +37,12 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(circle);
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
+        assertEquals(3,shapeCollector.getFigures().size() );
 
     }
+
+
+
     @Test
     public void testRemoveFigure() {
         Circle circle = new Circle(5);
@@ -45,9 +50,13 @@ public class ShapeCollectorTestSuite {
         Triangle triangle = new Triangle(4,4);
 
         ShapeCollector shapeCollector = new ShapeCollector();
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(square);
+        shapeCollector.addFigure(triangle);
+
         shapeCollector.removeFigure(circle);
         shapeCollector.removeFigure(square);
-        shapeCollector.removeFigure(triangle);
+        assertEquals(1, shapeCollector.getFigures().size());
         }
         @Test
     public void testShowFigure(){
