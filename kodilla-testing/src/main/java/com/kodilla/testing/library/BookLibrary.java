@@ -21,11 +21,8 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> booksList = new ArrayList<>();
-        if (booksList.size() < 1) return booksList;
-        if (booksList.size() == 1) return booksList;
-        if (booksList.size() == 5) return booksList;
-         return booksList;
+       return libraryDatabase.listBooksInHandsOf(libraryUser);
+
     }
 }
 

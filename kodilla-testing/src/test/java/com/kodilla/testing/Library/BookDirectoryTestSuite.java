@@ -3,12 +3,14 @@ package com.kodilla.testing.Library;
 import com.kodilla.testing.library.Book;
 import com.kodilla.testing.library.BookLibrary;
 import com.kodilla.testing.library.LibraryDatabase;
+import com.kodilla.testing.library.LibraryUser;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -69,4 +71,40 @@ public class BookDirectoryTestSuite {
         assertEquals(15, theListOfBooks15.size());
         assertEquals(0, theListOfBooks40.size());
     }
+
+    @Test
+    public void testListBooksInHandsOf5(){
+    LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+    BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+    List<Book> resultListOf5Books = generateListOfNBooks(5);
+
+    when(libraryDatabaseMock.listBooksInHandsOf(any())).thenReturn(resultListOf5Books);
+
+    List<Book> books = bookLibrary.listBooksInHandsOf(new LibraryUser("Marek", "Marecki", "2324324324"));
+    assertEquals(5, books.size());
+
+    }
+    @Test
+    public void testListBooksInHandsOf1(){
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOf1 = generateListOfNBooks(1);
+
+        when(libraryDatabaseMock.listBooksInHandsOf(any())).thenReturn(resultListOf1);
+
+        List<Book> books = bookLibrary.listBooksInHandsOf(new LibraryUser("Tomasz", "Tomczak", "234324324234"));
+        assertEquals(1,books.size());
+    }
+    @Test
+    public void testListBooksInHandsOf0() {
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOf0 = generateListOfNBooks(0);
+
+        when(libraryDatabaseMock.listBooksInHandsOf(any())).thenReturn(resultListOf0);
+
+        List<Book> books = bookLibrary.listBooksInHandsOf(new LibraryUser("Maria", "Marecka", "8797879798"));
+        assertEquals(0,books.size());
+    }
+
 }
