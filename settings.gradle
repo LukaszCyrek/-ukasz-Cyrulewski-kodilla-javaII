@@ -1,3 +1,4 @@
-grainclude 'kodilla-testing'
+
 include 'kodilla-testing'
+include 'kodilla-stream'
 
