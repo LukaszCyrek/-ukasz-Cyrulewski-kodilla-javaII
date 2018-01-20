@@ -4,7 +4,7 @@ import static com.kodilla.stream.beautifier.PoemBeautifier.changeStr;
 
 public class StreamMain {
     public static void main(String[] args) {
-        String inStr = "Kocham Dorotkę moją żonę";
+        String inStr = "To jest przykładowy tekst";
         String outStr;
         System.out.println("Zdanie: " +inStr);
         PoemDecorator reverse = (str) -> {
